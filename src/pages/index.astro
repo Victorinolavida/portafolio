@@ -30,4 +30,26 @@ import WorkExperience from '../components/WorkExperience.astro'
       flex-direction: column;
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // validete if browser support scroll behavior
+      if (!window.CSS.supports('scroll-behavior', 'smooth')) {
+        console.log('This browser does not supports scroll-behavior: smooth')
+        const $buttons: NodeListOf<HTMLAnchorElement> =
+          document.querySelectorAll('#button-nav')
+
+        $buttons.forEach(($button) => {
+          const href = $button.getAttribute('href')
+          if (!href) return
+          const $target = document.querySelector(href)
+          if (!$target) return
+
+          $button.addEventListener('click', (event) => {
+            event.preventDefault()
+            $target.scrollIntoView({ behavior: 'smooth' })
+          })
+        })
+      }
+    })
+  </script>
 </html>
