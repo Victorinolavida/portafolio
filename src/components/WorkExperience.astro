@@ -1,25 +1,26 @@
 ---
-import { WORK_EXPERIENCE } from "../content/data";
+import { WORK_EXPERIENCE } from '../content/data'
 ---
 
 <section id="work-experience" class="work-experience">
-    <h2>Work Experience</h2>
-    <ul>
-        {
-            WORK_EXPERIENCE.map((job) => (
-                <li>
-                    <h3>{job.position}</h3>
-                    <div>
-                        <p>
-                            {job.company}- {job.location}
-                        </p>
-                        <p>
-                            {job.startDate} - {job.endDate}
-                        </p>
-
-                    </div>
-                </li>
-            ))
-        }
+  <h2>Work Experience</h2>
+  <div class="work-experience-list-container">
+    <ul class="work-experience-list">
+      {
+        WORK_EXPERIENCE.map((job) => (
+          <li>
+            <h3>{job.position}</h3>
+            <div>
+              <p>
+                {job.company}- {job.location}
+              </p>
+              <p>
+                {job.startDate} - {job.endDate}
+              </p>
+            </div>
+          </li>
+        ))
+      }
     </ul>
+  </div>
 </section>

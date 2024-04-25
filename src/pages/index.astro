@@ -1,25 +1,35 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import About from "../components/About.astro";
-import AboutMe from "../components/AboutMe.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import WorkExperience from "../components/WorkExperience.astro";
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import IntroductionMyself from '../components/Introduction.astro'
+import AboutMe from '../components/AboutMe.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import WorkExperience from '../components/WorkExperience.astro'
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<About />
-			<WorkExperience />
-			<AboutMe />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <IntroductionMyself />
+      <WorkExperience />
+      <AboutMe />
+    </main>
+    <Footer />
+    <style>
+      main {
+        max-width: 85vw;
+        margin: 0 auto;
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </body>
 </html>
