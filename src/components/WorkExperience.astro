@@ -9,15 +9,16 @@ import { WORK_EXPERIENCE } from '../content/data'
       {
         WORK_EXPERIENCE.map((job) => (
           <li>
-            <h3>{job.position}</h3>
-            <div>
-              <p>
-                {job.company}- {job.location}
-              </p>
-              <p>
-                {job.startDate} - {job.endDate}
-              </p>
+            <div class="work-title">
+              <span />
+              <div class="work-title-details">
+                <h3>{job.position}</h3>
+                <p>
+                  {job.startDate} - {job.endDate}
+                </p>
+              </div>
             </div>
+            <div class="work-description">{job.description}</div>
           </li>
         ))
       }
