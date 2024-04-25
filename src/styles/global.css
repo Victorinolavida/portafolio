@@ -175,3 +175,42 @@ section {
 	width: 100%;
 	margin-bottom: 5rem;
 }
+
+
+/* responsive */
+
+@media (max-width: 667px) {
+	p {
+		font-size: 18px;
+	}
+
+	main {
+		width: 100%;
+		padding: 0 1rem;
+		/* TODO: fix oversize in introduction section */
+		overflow-x: hidden;
+	}
+
+
+	.introduction {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.work-experience-list-container {
+		width: 100%;
+	}
+
+	.work-experience-list {
+		gap: 2rem;
+	}
+
+	.work-experience-list li {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.work-title {
+		width: 100%;
+	}
+}
