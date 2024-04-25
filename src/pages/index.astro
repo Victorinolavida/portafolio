@@ -13,23 +13,21 @@ import WorkExperience from '../components/WorkExperience.astro'
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
-    <Header />
-    <main>
-      <IntroductionMyself />
-      <WorkExperience />
-      <AboutMe />
-    </main>
-    <Footer />
-    <style>
-      main {
-        max-width: 85vw;
-        margin: 0 auto;
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    </style>
-  </body>
+  <Header />
+  <main>
+    <IntroductionMyself />
+    <WorkExperience />
+    <AboutMe />
+  </main>
+  <Footer />
+  <style>
+    main {
+      max-width: 80vh;
+      margin: 0 auto;
+      align-items: center;
+      gap: 4rem;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </html>
