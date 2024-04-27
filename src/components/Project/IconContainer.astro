@@ -1,0 +1,26 @@
+---
+import type { ProjectIcon } from '../../types'
+import Icon from './Icon.astro'
+
+interface Props {
+    icons: ProjectIcon[]
+}
+const { icons } = Astro.props
+---
+
+{icons.length > 0 && null}
+
+<div>
+    <h4>Tecnologies used</h4>
+    <div>
+        {icons.map((icon) => <Icon href={icon.href} caption={icon.caption} />)}
+    </div>
+</div>
+
+<style>
+    /* xdxd */
+    div div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
