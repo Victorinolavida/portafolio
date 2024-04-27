@@ -1,0 +1,43 @@
+---
+const tenologyIcons: Array<ProjectIcon> = [
+    {
+        href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg',
+        caption: 'Astro',
+    },
+    {
+        href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+        caption: 'CSS',
+    },
+    {
+        href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
+        caption: 'Vercel',
+    },
+    {
+        href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+        caption: 'JavaScipt',
+    },
+]
+import type { ProjectIcon } from '../../types'
+import Icons from './IconContainer.astro'
+---
+
+<div>
+    <h3>
+        This portaforlio (<a href="https://victorinolavida.com" target="_blank"
+            >victorino.lavida.com</a
+        >)
+    </h3>
+    <p>
+        A personal portfolio made with Astro, where I share my project and their
+        code resitories.
+    </p>
+    <p>
+        Github respository: <a
+            href="https://github.com/Victorinolavida/portafolio"
+            target="_blank">https://github.com/Victorinolavida/portafolio</a
+        >
+    </p>
+</div>
+<div>
+    <Icons icons={tenologyIcons} />
+</div>
