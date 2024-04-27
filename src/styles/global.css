@@ -62,6 +62,7 @@ body {
 	background: linear-gradient(var(--gray-gradient)) no-repeat;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+	max-width: 100%;
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	/* line-height: 1.7; */
@@ -210,30 +211,44 @@ section {
 		font-size: 18px;
 	}
 
+	body {
+		width: 100%;
+	}
 	main {
-		padding: 0 1rem;
+		padding: 0;
+		width: 95%;
+		margin: 0 auto;
+		margin-top: 2rem;
+	}
+
+	section {
+		width: 90% !important;
+		padding: 0.5rem 1rem !important;
+		margin: 0 auto;
 	}
 
 
 	.introduction {
 		display: flex;
 		flex-direction: column;
-	}
-
-	.work-experience-list-container {
-		width: 100%;
+		margin: 0 auto;
 	}
 
 	.work-experience-list {
-		gap: 2rem;
-	}
+		/* Yesus f*uckin ul padding */
+		padding: 0 !important;
 
+	}
 	.work-experience-list li {
+		display: flex;
 		flex-direction: column;
+	}
+	.work-title{
 		width: 100%;
 	}
 
-	.work-title {
+	.work-description {
 		width: 100%;
 	}
+
 }
