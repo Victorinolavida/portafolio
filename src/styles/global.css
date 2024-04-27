@@ -72,6 +72,13 @@ section {
 	padding: 1rem 2rem;
 }
 
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
 .introduction {
 	margin-top: 2rem;
 	display: flex;
@@ -176,6 +183,10 @@ section {
 	margin-bottom: 5rem;
 }
 
+.projects {
+	width: 100%;
+	margin-bottom: 5rem;
+}
 
 /* responsive */
 

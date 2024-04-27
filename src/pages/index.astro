@@ -6,6 +6,7 @@ import IntroductionMyself from '../components/Introduction.astro'
 import AboutMe from '../components/AboutMe.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import WorkExperience from '../components/WorkExperience.astro'
+import Projects from '../components/Projects.astro'
 ---
 
 <!doctype html>
@@ -17,6 +18,7 @@ import WorkExperience from '../components/WorkExperience.astro'
   <main>
     <IntroductionMyself />
     <WorkExperience />
+    <Projects />
     <AboutMe />
   </main>
   <Footer />
@@ -32,24 +34,60 @@ import WorkExperience from '../components/WorkExperience.astro'
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
+      var $buttons: NodeListOf<HTMLAnchorElement> =
+        document.querySelectorAll('#button-nav')
+
+      //setup active link reload page
+      var activeLink = window.location.hash
+      if (['#about-me', '#work-experience', '#projects'].includes(activeLink)) {
+        $buttons.forEach(($button) => {
+          var href = $button.getAttribute('href')
+          if (!href) return
+          if (href.includes(activeLink)) {
+            $button.classList.add('active')
+          }
+        })
+      }
+
       // validete if browser support scroll behavior
       if (!window.CSS.supports('scroll-behavior', 'smooth')) {
         console.log('This browser does not supports scroll-behavior: smooth')
-        const $buttons: NodeListOf<HTMLAnchorElement> =
-          document.querySelectorAll('#button-nav')
 
         $buttons.forEach(($button) => {
-          const href = $button.getAttribute('href')
+          var href = $button.getAttribute('href')
           if (!href) return
-          const $target = document.querySelector(href)
-          if (!$target) return
-
+          var $target = document.querySelector(href)
           $button.addEventListener('click', (event) => {
+            if (!$target) return
             event.preventDefault()
             $target.scrollIntoView({ behavior: 'smooth' })
           })
         })
       }
+
+      // sticky navbar
+      var $nav = document.getElementById('nav')!
+      var top = $nav?.offsetTop || 0
+
+      function stickyNav() {
+        if (window.scrollY > top) {
+          $nav.classList.add('sticky')
+        } else {
+          $nav.classList.remove('sticky')
+        }
+      }
+
+      addEventListener('scroll', stickyNav)
+
+      //active link
+      $buttons.forEach(($button) => {
+        $button.addEventListener('click', () => {
+          $buttons.forEach(($button) => {
+            $button.classList.remove('active')
+          })
+          $button.classList.add('active')
+        })
+      })
     })
   </script>
 </html>
