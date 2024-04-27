@@ -60,7 +60,6 @@ body {
 	padding: 0;
 	text-align: left;
 	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
@@ -68,9 +67,23 @@ body {
 	/* line-height: 1.7; */
 }
 
+main {
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem 0;
+}
+
 section {
 	padding: 1rem 2rem;
+	width: 100%;
+	background-color: white;
+	border-radius: 1rem;
+	box-shadow: 10px 10px 10px rgba(var(--black), 5%);
 }
+
 
 .sticky {
 	position: fixed;
@@ -125,6 +138,8 @@ section {
 	padding: 0.5rem 1rem;
 	gap: 1rem;
 	position: relative;
+	padding: 1rem 2rem;
+	max-width: 100%;
 }
 
 .work-experience-list li:first-child {
@@ -196,10 +211,7 @@ section {
 	}
 
 	main {
-		width: 100%;
 		padding: 0 1rem;
-		/* TODO: fix oversize in introduction section */
-		overflow-x: hidden;
 	}
 
 

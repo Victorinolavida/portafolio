@@ -43,6 +43,7 @@ import { SITE_TITLE, LINKEDIN_LINK, GITHUB_LINK } from '../consts'
 
 <style>
   header {
+    background-color: green;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -54,6 +55,7 @@ import { SITE_TITLE, LINKEDIN_LINK, GITHUB_LINK } from '../consts'
   }
 
   header nav {
+    display: none;
     background-color: #fff;
     width: 90%;
     margin: 0 auto;
@@ -62,18 +64,18 @@ import { SITE_TITLE, LINKEDIN_LINK, GITHUB_LINK } from '../consts'
     align-items: center;
     padding: 0.8rem;
   }
-  h2 {
+  h1 {
     margin: 0;
     font-size: 1em;
   }
 
-  h2 a,
-  h2 a.active {
+  h1 a,
+  h1 a.active {
     text-decoration: none;
   }
   nav {
     background-color: white;
-    min-width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -97,6 +99,14 @@ import { SITE_TITLE, LINKEDIN_LINK, GITHUB_LINK } from '../consts'
   @media (max-width: 720px) {
     .social-links {
       display: none;
+    }
+    .internal-links {
+      display: none;
+    }
+    header nav {
+      width: 100%;
+    }
+    header {
     }
   }
 </style>
