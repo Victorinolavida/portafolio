@@ -4,6 +4,10 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+html {
+	scroll-behavior: smooth;
+}
+
 :root {
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
@@ -56,16 +60,37 @@ body {
 	padding: 0;
 	text-align: left;
 	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+	max-width: 100%;
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	/* line-height: 1.7; */
 }
 
+main {
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem 0;
+}
+
 section {
 	padding: 1rem 2rem;
+	width: 100%;
+	background-color: white;
+	border-radius: 1rem;
+	box-shadow: 10px 10px 10px rgba(var(--black), 5%);
+}
+
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
 
 .introduction {
@@ -114,6 +139,8 @@ section {
 	padding: 0.5rem 1rem;
 	gap: 1rem;
 	position: relative;
+	padding: 1rem 2rem;
+	max-width: 100%;
 }
 
 .work-experience-list li:first-child {
@@ -170,4 +197,58 @@ section {
 .about-me {
 	width: 100%;
 	margin-bottom: 5rem;
+}
+
+.projects {
+	width: 100%;
+	margin-bottom: 5rem;
+}
+
+/* responsive */
+
+@media (max-width: 667px) {
+	p {
+		font-size: 18px;
+	}
+
+	body {
+		width: 100%;
+	}
+	main {
+		padding: 0;
+		width: 95%;
+		margin: 0 auto;
+		margin-top: 2rem;
+	}
+
+	section {
+		width: 90% !important;
+		padding: 0.5rem 1rem !important;
+		margin: 0 auto;
+	}
+
+
+	.introduction {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
+	.work-experience-list {
+		/* Yesus f*uckin ul padding */
+		padding: 0 !important;
+
+	}
+	.work-experience-list li {
+		display: flex;
+		flex-direction: column;
+	}
+	.work-title{
+		width: 100%;
+	}
+
+	.work-description {
+		width: 100%;
+	}
+
 }
