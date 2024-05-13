@@ -1,6 +1,13 @@
+---
+import { Image } from 'astro:assets'
+import Photo from '../../public/photo.jpg'
+
+//  src="/photo.jpg"
+---
+
 <section id="introduction" class="introduction">
   <div class="introduction-photo-container">
-    <img src="/photo.jpg" class="introduction-photo" />
+    <Image src={Photo} class="introduction-photo" alt="Victorino Lavida " />
   </div>
   <div class="introduction-text">
     <h2>Hi there!</h2>

@@ -17,11 +17,17 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  rel="icon"
+  type="image/svg+xml"
+  href="/favicon-white.svg"
+  media="(prefers-color-scheme: light)"
+/>
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href="/favicon-dark.svg"
+  media="(prefers-color-scheme: dark)"
 />
 <meta name="generator" content={Astro.generator} />
 
@@ -50,11 +56,11 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<!-- <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.url)} /> -->
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
