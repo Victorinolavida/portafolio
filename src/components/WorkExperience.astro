@@ -12,7 +12,10 @@ import { WORK_EXPERIENCE } from '../content/data'
             <div class="work-title">
               <span />
               <div class="work-title-details">
-                <h3>{job.position}</h3>
+                <div>
+                  <h3>{job.position}</h3>
+                  <p class="work-title-company">{job.company}</p>
+                </div>
                 <p>
                   {job.startDate} - {job.endDate}
                 </p>
