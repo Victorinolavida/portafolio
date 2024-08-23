@@ -12,15 +12,33 @@ const { icons } = Astro.props
 
 <div>
     <h4>Tecnologies used</h4>
-    <div>
+    <div class="container-icons">
         {icons.map((icon) => <Icon href={icon.href} caption={icon.caption} />)}
     </div>
 </div>
 
 <style>
     /* xdxd */
-    div div {
+    /* div div {
         display: flex;
+        width: 100%;
+        background-color: red;
         flex-wrap: wrap;
+        justify-items: center;
+        align-items: center;
+    } */
+    .container-icons {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        display: flex;
+        align-self: center;
+    }
+
+    @media (max-width: 667px) {
+        .container-icons {
+            justify-content: center;
+        }
     }
 </style>
