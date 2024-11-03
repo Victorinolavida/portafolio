@@ -1,0 +1,50 @@
+---
+const tenologyIcons: Array<ProjectIcon> = [
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg',
+    caption: 'Go',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+    caption: 'Next.js',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    caption: 'Tailwind',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+    caption: 'Postgresql',
+  },
+]
+import type { ProjectIcon } from '../../types'
+import Icons from './IconContainer.astro'
+---
+
+<style>
+  span {
+    color: grey;
+    font-size: 0.8em !important;
+  }
+</style>
+
+<div>
+  <h3>Maket bonds app</h3>
+  <p>
+    A project where you can create your acount and start to buy or sell bonds,
+    with others users in the platform. This is a example of a fintech app.
+  </p>
+  <p>
+    Github respository: <a
+      href="https://github.com/Victorinolavida/app_bonds/"
+      target="_blank"
+    >
+      https://github.com/Victorinolavida/app_bonds/
+    </a>
+  </p>
+  <div>
+    <Icons icons={tenologyIcons} />
+  </div>
+
+  <span> this project is not deployed. </span>
+</div>

@@ -1,0 +1,40 @@
+---
+const tenologyIcons: Array<ProjectIcon> = [
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
+    caption: 'Laravel',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    caption: 'Tailwind',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+    caption: 'Postgresql',
+  },
+  {
+    href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    caption: 'React',
+  },
+]
+import type { ProjectIcon } from '../../types'
+import Icons from './IconContainer.astro'
+---
+
+<div>
+  <h3>
+    Strade web app (<a href="https://resellers.stradeworld.com/" target="_blank"
+      >resellers.stradeworld.com</a
+    >)
+  </h3>
+  <p>
+    A web page where sneakers resellers can create their account and start to
+    sell, manage and publish their products.
+  </p>
+  <p>
+    Github respository: <span>private</span>
+  </p>
+</div>
+<div>
+  <Icons icons={tenologyIcons} />
+</div>
