@@ -1,17 +1,34 @@
 export const WORK_EXPERIENCE = [
   {
+    location: 'Mexico City',
+    position: 'Backend Developer',
+    website: 'https://www.cicada.io/',
+    startDate: 'August 2024',
+    endDate: 'Present',
+    highlights: [
+            "Migrate python code to a microservice in Go",
+            "Improving a matchine algorith for transaction in bonds market",
+            "Creating endpoints for a new feature in the API",
+            "Making unit test for ensure the code quality",
+            "Making load test with k6 for ensure the performance of architecture",
+    ],
+    company: 'Cicada',
+    description: 'A system platform for trading mexican bonds',
+  },
+
+  {
     location: 'Monterrey',
     position: 'Jr full stack developer',
     website: '',
-    startDate: 'Jan 2024',
-    endDate: 'Present',
+    startDate: 'Jan 2023',
+    endDate: 'Aug 2024',
     highlights: [
       'Make a landing page for attraction new users',
       'Make reports with SQL query in PostgreSQL',
       'Integrating new creating account flow ',
       'Improving user experience making a search functionality adding filters by distinct categories.',
     ],
-    company: 'Strade',
+    company: 'Strade (side project)',
     description: 'Developing a web app, for attraction sneakers resellers, and provide them a platform where they can publish their inventory and also can manage their stock and sales.',
   },
 

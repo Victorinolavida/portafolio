@@ -177,6 +177,7 @@ section {
 .work-title-company{
 	color: rgb(var(--gray-dark));
 	font-size: 22px !important;
+    font-style: italic;
 	margin-top: -1rem;
 }
 
@@ -207,6 +208,12 @@ section {
 .projects {
 	width: 100%;
 	margin-bottom: 5rem;
+}
+
+.projects-container {
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
 }
 
 /* responsive */

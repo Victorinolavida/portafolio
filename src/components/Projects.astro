@@ -1,17 +1,22 @@
 ---
 import PortafolioProject from './Project/Portafolio.project.astro'
+import BondsAppProject from './Project/Bonds.project.astro'
+import StradeProject from './Project/Strade.project.astro'
 ---
 
 <section id="projects" class="projects">
-  <h2>My Projects!</h2>
-
-  <PortafolioProject />
+    <h2>My Projects!</h2>
+    <div class="projects-container">
+        <PortafolioProject />
+        <BondsAppProject />
+        <StradeProject />
+    </div>
 </section>
 
 <style>
-  a,
-  a:visited {
-    color: #000d8a;
-    text-decoration: none;
-  }
+    a,
+    a:visited {
+        color: #000d8a;
+        text-decoration: none;
+    }
 </style>
