@@ -1,6 +1,4 @@
-
-
 export type ProjectIcon = {
-    href: string
-    caption: string
+  href: string
+  caption: string
 }

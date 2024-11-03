@@ -3,7 +3,7 @@ import type { ProjectIcon } from '../../types'
 import Icon from './Icon.astro'
 
 interface Props {
-    icons: ProjectIcon[]
+  icons: ProjectIcon[]
 }
 const { icons } = Astro.props
 ---
@@ -11,15 +11,15 @@ const { icons } = Astro.props
 {icons.length > 0 && null}
 
 <div>
-    <h4>Tecnologies used</h4>
-    <div class="container-icons">
-        {icons.map((icon) => <Icon href={icon.href} caption={icon.caption} />)}
-    </div>
+  <h4>Tecnologies used</h4>
+  <div class="container-icons">
+    {icons.map((icon) => <Icon href={icon.href} caption={icon.caption} />)}
+  </div>
 </div>
 
 <style>
-    /* xdxd */
-    /* div div {
+  /* xdxd */
+  /* div div {
         display: flex;
         width: 100%;
         background-color: red;
@@ -27,18 +27,18 @@ const { icons } = Astro.props
         justify-items: center;
         align-items: center;
     } */
-    .container-icons {
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        align-items: center;
-        display: flex;
-        align-self: center;
-    }
+  .container-icons {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    align-self: center;
+  }
 
-    @media (max-width: 667px) {
-        .container-icons {
-            justify-content: center;
-        }
+  @media (max-width: 667px) {
+    .container-icons {
+      justify-content: center;
     }
+  }
 </style>
