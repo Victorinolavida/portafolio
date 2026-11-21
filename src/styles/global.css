@@ -286,6 +286,41 @@ main,
 .about-content div p + p {
   margin-top: 1rem;
 }
+.sponsors-content {
+  margin-left: 25%;
+}
+.sponsors-lead {
+  margin-bottom: 2rem;
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+}
+.sponsors-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+.sponsors-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.sponsors-gallery figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #171717;
+  padding-top: 0.55rem;
+  margin-top: 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.sponsors-gallery figcaption span {
+  color: #666;
+  font-weight: 400;
+}
 .site-footer {
   background: #002fa7;
   color: #fff;
@@ -363,6 +398,9 @@ main,
   .about-content {
     margin-left: 0;
   }
+  .sponsors-content {
+    margin-left: 0;
+  }
 }
 @media (max-width: 550px) {
   .site-nav {
@@ -422,6 +460,9 @@ main,
   .about-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  .sponsors-gallery {
+    gap: 1rem;
   }
   .footer-bottom {
     margin-top: 50px;
