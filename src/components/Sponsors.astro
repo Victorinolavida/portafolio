@@ -1,3 +1,20 @@
+---
+const sponsors = [
+  {
+    name: 'Frijolito',
+    thumbnail: '/images/sponsor-1.webp',
+    photo: '/images/frijolito-full.webp',
+    alt: 'Frijolito, a black cat looking at the camera',
+  },
+  {
+    name: 'Bigotes',
+    thumbnail: '/images/sponsor-2.webp',
+    photo: '/images/bigotes-full.webp',
+    alt: 'Bigotes, a tabby cat relaxing outdoors',
+  },
+]
+---
+
 <section id="sponsors" class="content-section sponsors">
   <div class="section-heading">
     <p class="section-number">04</p><h2>Sponsors<span>.</span></h2>
@@ -5,28 +22,71 @@
   <div class="sponsors-content">
     <p class="sponsors-lead">Powered by cats.</p>
     <div class="sponsors-gallery">
-      <figure>
-        <img
-          src="/images/sponsor-1.webp"
-          alt="Frijolito, a black cat looking at the camera"
-          width="800"
-          height="800"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Frijolito <span>01 / 02</span></figcaption>
-      </figure>
-      <figure>
-        <img
-          src="/images/sponsor-2.webp"
-          alt="Bigotes, a tabby cat relaxing outdoors"
-          width="800"
-          height="800"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Bigotes <span>02 / 02</span></figcaption>
-      </figure>
+      {
+        sponsors.map((sponsor) => (
+          <figure>
+            <a
+              class="sponsor-photo"
+              href={sponsor.photo}
+              data-dialog={`photo-${sponsor.name}`}
+              aria-label={`View the full photo of ${sponsor.name}`}
+            >
+              <img
+                src={sponsor.thumbnail}
+                alt={sponsor.alt}
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <figcaption>{sponsor.name}</figcaption>
+            <dialog
+              class="sponsor-dialog"
+              id={`photo-${sponsor.name}`}
+              aria-labelledby={`title-${sponsor.name}`}
+            >
+              <div class="sponsor-dialog-content">
+                <div class="sponsor-dialog-header">
+                  <h3 id={`title-${sponsor.name}`}>{sponsor.name}</h3>
+                  <form method="dialog">
+                    <button type="submit" autofocus>
+                      Close
+                    </button>
+                  </form>
+                </div>
+                <img
+                  src={sponsor.photo}
+                  alt={sponsor.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </dialog>
+          </figure>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<script>
+  document
+    .querySelectorAll<HTMLAnchorElement>('.sponsor-photo')
+    .forEach((link) => {
+      const dialog = document.getElementById(link.dataset.dialog ?? '')
+      if (
+        !(dialog instanceof HTMLDialogElement) ||
+        typeof dialog.showModal !== 'function'
+      )
+        return
+
+      link.addEventListener('click', (event) => {
+        event.preventDefault()
+        dialog.showModal()
+      })
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close()
+      })
+    })
+</script>
