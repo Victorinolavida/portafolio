@@ -286,40 +286,93 @@ main,
 .about-content div p + p {
   margin-top: 1rem;
 }
+.sponsors {
+  padding-bottom: 60px;
+}
+.sponsors .section-heading {
+  margin-bottom: 2rem;
+}
+.sponsors .section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
 .sponsors-content {
   margin-left: 25%;
 }
 .sponsors-lead {
-  margin-bottom: 2rem;
-  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
   line-height: 1.13;
   letter-spacing: -0.045em;
 }
 .sponsors-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
-.sponsors-gallery img {
+.sponsor-photo {
+  display: block;
+  width: clamp(100px, 12vw, 140px);
+  border-radius: 50%;
+}
+.sponsor-photo img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center 30%;
+  border-radius: 50%;
+}
+.sponsor-photo:hover img {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 .sponsors-gallery figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  border-top: 1px solid #171717;
-  padding-top: 0.55rem;
-  margin-top: 0.7rem;
-  font-size: 0.7rem;
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
   font-weight: 700;
 }
-.sponsors-gallery figcaption span {
-  color: #666;
-  font-weight: 400;
+.sponsor-dialog {
+  width: min(92vw, 850px);
+  max-width: none;
+  max-height: 90vh;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: #171717;
+}
+.sponsor-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+.sponsor-dialog-content {
+  padding: 1rem;
+}
+.sponsor-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.sponsor-dialog-header h3 {
+  font-size: 1.1rem;
+}
+.sponsor-dialog-header button {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid currentColor;
+  background: #fff;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.sponsor-dialog-header button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.sponsor-dialog-content > img {
+  display: block;
+  width: 100%;
+  max-height: calc(90vh - 6rem);
+  object-fit: contain;
 }
 .site-footer {
   background: #002fa7;
