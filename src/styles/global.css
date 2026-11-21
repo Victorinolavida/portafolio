@@ -126,6 +126,26 @@ main,
   max-width: 570px;
   color: #555;
 }
+.introduction-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 2rem;
+}
+.cv-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.cv-link:hover {
+  background: #171717;
+  color: #fff;
+}
 .text-link,
 .project-link {
   display: inline-block;

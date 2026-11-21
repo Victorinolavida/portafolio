@@ -48,16 +48,20 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
+To show the Download CV button, set `CV_URL` to the public HTTP or HTTPS URL of your CV. For local development, copy `.env.example` to `.env` and set the value there. The URL is public and must not contain secrets. If it is unset, the button is hidden.
+
+This site is built statically, so changing `CV_URL` requires a new build and deployment. On Cloudflare Pages, set it under your project's **Settings > Environment variables**, then trigger a new deployment; no Git commit is needed. For reliable downloading, configure the file host to return `Content-Disposition: attachment`; otherwise the browser may open the CV instead.
+
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`            | Installs dependencies                            |
-| `pnpm dev`                | Starts local dev server at `localhost:4321`      |
-| `pnpm build`              | Build your production site to `./dist/`          |
-| `pnpm preview`            | Preview your build locally, before deploying     |
-| `pnpm astro ...`          | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro --help`       | Get help using the Astro CLI                     |
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `pnpm install`      | Installs dependencies                            |
+| `pnpm dev`          | Starts local dev server at `localhost:4321`      |
+| `pnpm build`        | Build your production site to `./dist/`          |
+| `pnpm preview`      | Preview your build locally, before deploying     |
+| `pnpm astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
