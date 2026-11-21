@@ -27,6 +27,7 @@ const projects = [
       docker,
     ],
     url: 'https://github.com/Victorinolavida/trading-app',
+    video: 'https://videos.victorinolavida.com/demo_trading_v1',
   },
   {
     name: 'Files Uploader',
@@ -40,6 +41,7 @@ const projects = [
       docker,
     ],
     url: 'https://github.com/Victorinolavida/files-uploader',
+    video: 'https://videos.victorinolavida.com/demo_file_uploader_v1',
   },
   {
     name: 'URL Shortener',
@@ -86,6 +88,20 @@ const projects = [
               </p>
             )}
           </div>
+          {project.video && (
+            <video
+              class="project-video"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              aria-label={`${project.name} demonstration`}
+            >
+              <source src={`${project.video}.webm`} type="video/webm" />
+              <source src={`${project.video}.mp4`} type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          )}
           {project.technologies && <Icons icons={project.technologies} />}
         </article>
       ))
