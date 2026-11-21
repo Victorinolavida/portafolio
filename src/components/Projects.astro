@@ -1,17 +1,95 @@
 ---
 import PortafolioProject from './Project/Portafolio.project.astro'
+import Icons from './Project/IconContainer.astro'
+
+const icon = (name: string, caption: string) => ({
+  href: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-original.svg`,
+  caption,
+})
+
+const go = icon('go', 'Go')
+const grpc = { href: '/grpc.svg', caption: 'gRPC' }
+const postgres = icon('postgresql', 'PostgreSQL')
+const react = icon('react', 'React')
+const docker = icon('docker', 'Docker')
+
+const projects = [
+  {
+    name: 'Trading App',
+    description:
+      'A trading application with a Go backend, gRPC services, and a React frontend. It includes authentication, orders, and a live order book.',
+    technologies: [
+      go,
+      grpc,
+      postgres,
+      react,
+      icon('typescript', 'TypeScript'),
+      docker,
+    ],
+    url: 'https://github.com/Victorinolavida/trading-app',
+  },
+  {
+    name: 'Files Uploader',
+    description:
+      'A Go file upload service with presigned URLs, multipart uploads, and background processing of storage events.',
+    technologies: [
+      go,
+      icon('sqlite', 'SQLite'),
+      { href: 'https://cdn.simpleicons.org/minio', caption: 'MinIO' },
+      icon('redis', 'Redis'),
+      docker,
+    ],
+    url: 'https://github.com/Victorinolavida/files-uploader',
+  },
+  {
+    name: 'URL Shortener',
+    description:
+      'A Go URL shortener with Redis caching, background link expiration, and click analytics.',
+    technologies: [go, postgres, icon('redis', 'Redis'), docker],
+    url: 'https://github.com/Victorinolavida/url_shorter',
+  },
+  {
+    name: 'Serverless Go Function',
+    description:
+      'A Go function deployed to AWS Lambda with infrastructure defined as code.',
+    url: 'https://github.com/Victorinolavida/go-aws',
+    technologies: [
+      go,
+      icon('amazonwebservices', 'AWS Lambda'),
+      icon('amazonwebservices', 'AWS CDK'),
+    ],
+  },
+]
 ---
 
-<section id="projects" class="projects">
-  <h2>My Projects!</h2>
-
-  <PortafolioProject />
+<section id="projects" class="content-section projects">
+  <div class="section-heading">
+    <p class="section-number">02</p><h2>Projects<span>.</span></h2>
+  </div>
+  <div class="projects-container">
+    {
+      projects.map((project) => (
+        <article class="project-card">
+          <div class="project-content">
+            <h3>{project.name}</h3>
+            {project.description && <p>{project.description}</p>}
+            {project.url && (
+              <p>
+                <a
+                  class="project-link"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </p>
+            )}
+          </div>
+          {project.technologies && <Icons icons={project.technologies} />}
+        </article>
+      ))
+    }
+    <PortafolioProject />
+  </div>
 </section>
-
-<style>
-  a,
-  a:visited {
-    color: #000d8a;
-    text-decoration: none;
-  }
-</style>

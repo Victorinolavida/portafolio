@@ -1,13 +1,17 @@
 {
-  "name": "",
+  "name": "portafolio",
+  "private": true,
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@11.18.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -16,6 +20,7 @@
     "@astrojs/sitemap": "^3.1.4",
     "@types/node": "^20.12.7",
     "astro": "^4.6.3",
+    "sharp": "0.32.6",
     "typescript": "^5.4.5"
   },
   "devDependencies": {

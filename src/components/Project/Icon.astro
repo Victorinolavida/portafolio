@@ -1,30 +1,12 @@
 ---
 interface Props {
-    href: string
-    caption: string
+  href: string
+  caption: string
 }
 const { href, caption } = Astro.props
 ---
 
-<figure>
-    <img class="icon" src={href} />
-    <figcaption>{caption}</figcaption>
+<figure class="technology-icon">
+  <img src={href} alt="" loading="lazy" width="28" height="28" class:list={[{ 'icon-grpc': caption === 'gRPC' }]} />
+  <figcaption>{caption}</figcaption>
 </figure>
-
-<style>
-    .icon {
-        width: 2em;
-        height: 2em;
-    }
-    figure {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    figcaption {
-        text-align: center;
-    }
-</style>

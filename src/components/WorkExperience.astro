@@ -2,26 +2,26 @@
 import { WORK_EXPERIENCE } from '../content/data'
 ---
 
-<section id="work-experience" class="work-experience">
-  <h2>Work Experience</h2>
-  <div class="work-experience-list-container">
-    <ul class="work-experience-list">
-      {
-        WORK_EXPERIENCE.map((job) => (
-          <li>
-            <div class="work-title">
-              <span />
-              <div class="work-title-details">
-                <h3>{job.position}</h3>
-                <p>
-                  {job.startDate} - {job.endDate}
-                </p>
-              </div>
-            </div>
-            <div class="work-description">{job.description}</div>
-          </li>
-        ))
-      }
-    </ul>
+<section id="work-experience" class="content-section work-experience">
+  <div class="section-heading">
+    <p class="section-number">01</p><h2>Experience<span>.</span></h2>
   </div>
+  <ul class="work-experience-list">
+    {
+      WORK_EXPERIENCE.map((job) => (
+        <li>
+          <p class="work-date">
+            {job.startDate} — {job.endDate}
+          </p>
+          <div class="work-title">
+            <>
+              <h3>{job.company}</h3>
+              <p>{job.position}</p>
+            </>
+          </div>
+          <p class="work-description">{job.description}</p>
+        </li>
+      ))
+    }
+  </ul>
 </section>
