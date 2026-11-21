@@ -240,6 +240,13 @@ main,
 .project-link {
   font-size: 0.85rem;
 }
+.project-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #171717;
+  object-fit: contain;
+}
 .technology-list {
   display: flex;
   flex-wrap: wrap;
