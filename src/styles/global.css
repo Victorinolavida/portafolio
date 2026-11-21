@@ -12,6 +12,9 @@
 html {
   scroll-behavior: smooth;
 }
+html.modal-open {
+  overflow: hidden;
+}
 body {
   margin: 0;
   font-size: 16px;
@@ -337,6 +340,7 @@ main,
   max-height: 90vh;
   padding: 0;
   border: 0;
+  overflow: hidden;
   background: #fff;
   color: #171717;
 }
@@ -354,7 +358,12 @@ main,
   margin-bottom: 1rem;
 }
 .sponsor-dialog-header h3 {
-  font-size: 1.1rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+.sponsor-dialog-header h3 span {
+  color: var(--accent);
 }
 .sponsor-dialog-header button {
   padding: 0.4rem 0.7rem;
@@ -363,6 +372,10 @@ main,
   color: var(--accent);
   font: inherit;
   cursor: pointer;
+}
+.sponsor-dialog-header button:hover {
+  background: var(--accent);
+  color: #fff;
 }
 .sponsor-dialog-header button:focus-visible {
   outline: 2px solid var(--accent);

@@ -48,7 +48,10 @@ const sponsors = [
             >
               <div class="sponsor-dialog-content">
                 <div class="sponsor-dialog-header">
-                  <h3 id={`title-${sponsor.name}`}>{sponsor.name}</h3>
+                  <h3 id={`title-${sponsor.name}`}>
+                    {sponsor.name}
+                    <span>.</span>
+                  </h3>
                   <form method="dialog">
                     <button type="submit" autofocus>
                       Close
@@ -110,6 +113,10 @@ const sponsors = [
     link.addEventListener('click', (event) => {
       event.preventDefault()
       dialog.showModal()
+      document.documentElement.classList.add('modal-open')
+    })
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('modal-open')
     })
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close()
