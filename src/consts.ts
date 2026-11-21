@@ -3,6 +3,6 @@
 
 export const SITE_TITLE = 'Victorino Lavida'
 export const SITE_DESCRIPTION =
-  'This is my personal website, my name is José Victorino Ruiz Lavida, I am a web developer, I am currently searching for a job'
+  'Portfolio of José Victorino Ruiz Lavida, a backend engineer working with Go, microservices, and cloud infrastructure.'
 export const LINKEDIN_LINK = 'https://www.linkedin.com/in/victorino-ruiz/'
 export const GITHUB_LINK = 'https://github.com/victorinolavida'

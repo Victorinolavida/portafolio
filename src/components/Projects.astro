@@ -1,15 +1,89 @@
 ---
 import PortafolioProject from './Project/Portafolio.project.astro'
-import BondsAppProject from './Project/Bonds.project.astro'
-import StradeProject from './Project/Strade.project.astro'
+import Icons from './Project/IconContainer.astro'
+
+const icon = (name: string, caption: string) => ({
+  href: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-original.svg`,
+  caption,
+})
+
+const go = icon('go', 'Go')
+const grpc = icon('grpc', 'gRPC')
+const postgres = icon('postgresql', 'PostgreSQL')
+const react = icon('react', 'React')
+const docker = icon('docker', 'Docker')
+
+const projects = [
+  {
+    name: 'Trading App',
+    description:
+      'A trading application with a Go backend, gRPC services, and a React frontend. It includes authentication, orders, and a live order book.',
+    technologies: [
+      go,
+      grpc,
+      postgres,
+      react,
+      icon('typescript', 'TypeScript'),
+      docker,
+    ],
+    url: 'https://github.com/Victorinolavida/trading-app',
+  },
+  {
+    name: 'Files Uploader',
+    description:
+      'A Go file upload service with presigned URLs, multipart uploads, and background processing of storage events.',
+    technologies: [
+      go,
+      icon('sqlite', 'SQLite'),
+      { href: 'https://cdn.simpleicons.org/minio', caption: 'MinIO' },
+      icon('redis', 'Redis'),
+      docker,
+    ],
+    url: 'https://github.com/Victorinolavida/files-uploader',
+  },
+  {
+    name: 'URL Shortener',
+    url: 'https://github.com/Victorinolavida/url_shorter',
+  },
+  {
+    name: 'Multi-Provider Agent Service',
+    description:
+      'A single API for switching between OpenAI, Anthropic, and Gemini, with real-time response streaming through server-sent events.',
+    technologies: [go, grpc, icon('kubernetes', 'Kubernetes'), postgres, react],
+  },
+  {
+    name: 'Serverless Go Function',
+    description:
+      'A Go function deployed to AWS Lambda with infrastructure defined as code.',
+    technologies: [
+      go,
+      icon('amazonwebservices', 'AWS Lambda'),
+      icon('amazonwebservices', 'AWS CDK'),
+    ],
+  },
+]
 ---
 
 <section id="projects" class="projects">
   <h2>My Projects!</h2>
   <div class="projects-container">
+    {
+      projects.map((project) => (
+        <div>
+          <h3>{project.name}</h3>
+          {project.description && <p>{project.description}</p>}
+          {project.technologies && <Icons icons={project.technologies} />}
+          {project.url && (
+            <p>
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                View on GitHub
+              </a>
+            </p>
+          )}
+        </div>
+      ))
+    }
     <PortafolioProject />
-    <BondsAppProject />
-    <StradeProject />
   </div>
 </section>
 

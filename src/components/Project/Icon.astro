@@ -7,7 +7,7 @@ const { href, caption } = Astro.props
 ---
 
 <figure>
-  <img class="icon" src={href} />
+  <img class="icon" src={href} alt="" loading="lazy" />
   <figcaption>{caption}</figcaption>
 </figure>
 
