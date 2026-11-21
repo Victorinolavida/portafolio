@@ -71,22 +71,48 @@ const sponsors = [
 </section>
 
 <script>
-  document
-    .querySelectorAll<HTMLAnchorElement>('.sponsor-photo')
-    .forEach((link) => {
-      const dialog = document.getElementById(link.dataset.dialog ?? '')
-      if (
-        !(dialog instanceof HTMLDialogElement) ||
-        typeof dialog.showModal !== 'function'
-      )
-        return
+  const preloadedPhotos = new Map<string, HTMLImageElement>()
+  const preloadPhoto = (link: HTMLAnchorElement) => {
+    if (preloadedPhotos.has(link.href)) return
+    const image = new Image()
+    image.src = link.href
+    preloadedPhotos.set(link.href, image)
+    image.decode().catch(() => {})
+  }
 
-      link.addEventListener('click', (event) => {
-        event.preventDefault()
-        dialog.showModal()
-      })
-      dialog.addEventListener('click', (event) => {
-        if (event.target === dialog) dialog.close()
-      })
+  const links = document.querySelectorAll<HTMLAnchorElement>('.sponsor-photo')
+  const section = document.getElementById('sponsors')
+  if (section && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          links.forEach(preloadPhoto)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '600px' },
+    )
+    observer.observe(section)
+  }
+
+  links.forEach((link) => {
+    const dialog = document.getElementById(link.dataset.dialog ?? '')
+    if (
+      !(dialog instanceof HTMLDialogElement) ||
+      typeof dialog.showModal !== 'function'
+    )
+      return
+
+    link.addEventListener('pointerenter', () => preloadPhoto(link), {
+      once: true,
     })
+    link.addEventListener('focus', () => preloadPhoto(link), { once: true })
+    link.addEventListener('click', (event) => {
+      event.preventDefault()
+      dialog.showModal()
+    })
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close()
+    })
+  })
 </script>
