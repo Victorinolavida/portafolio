@@ -8,7 +8,7 @@ const icon = (name: string, caption: string) => ({
 })
 
 const go = icon('go', 'Go')
-const grpc = icon('grpc', 'gRPC')
+const grpc = { href: '/grpc.svg', caption: 'gRPC' }
 const postgres = icon('postgresql', 'PostgreSQL')
 const react = icon('react', 'React')
 const docker = icon('docker', 'Docker')
@@ -43,13 +43,10 @@ const projects = [
   },
   {
     name: 'URL Shortener',
-    url: 'https://github.com/Victorinolavida/url_shorter',
-  },
-  {
-    name: 'Multi-Provider Agent Service',
     description:
-      'A single API for switching between OpenAI, Anthropic, and Gemini, with real-time response streaming through server-sent events.',
-    technologies: [go, grpc, icon('kubernetes', 'Kubernetes'), postgres, react],
+      'A Go URL shortener with Redis caching, background link expiration, and click analytics.',
+    technologies: [go, postgres, icon('redis', 'Redis'), docker],
+    url: 'https://github.com/Victorinolavida/url_shorter',
   },
   {
     name: 'Serverless Go Function',
@@ -64,33 +61,34 @@ const projects = [
 ]
 ---
 
-<section id="projects" class="projects">
-  <h2>My Projects!</h2>
+<section id="projects" class="content-section projects">
+  <div class="section-heading">
+    <p class="section-number">02</p><h2>Projects<span>.</span></h2>
+  </div>
   <div class="projects-container">
     {
       projects.map((project) => (
-        <div>
-          <h3>{project.name}</h3>
-          {project.description && <p>{project.description}</p>}
+        <article class="project-card">
+          <div class="project-content">
+            <h3>{project.name}</h3>
+            {project.description && <p>{project.description}</p>}
+            {project.url && (
+              <p>
+                <a
+                  class="project-link"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </p>
+            )}
+          </div>
           {project.technologies && <Icons icons={project.technologies} />}
-          {project.url && (
-            <p>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                View on GitHub
-              </a>
-            </p>
-          )}
-        </div>
+        </article>
       ))
     }
     <PortafolioProject />
   </div>
 </section>
-
-<style>
-  a,
-  a:visited {
-    color: #000d8a;
-    text-decoration: none;
-  }
-</style>
