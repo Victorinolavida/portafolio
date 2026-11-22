@@ -1,0 +1,125 @@
+---
+const sponsors = [
+  {
+    name: 'Frijolito',
+    thumbnail: '/images/sponsor-1.webp',
+    photo: '/images/frijolito-full.webp',
+    alt: 'Frijolito, a black cat looking at the camera',
+  },
+  {
+    name: 'Bigotes',
+    thumbnail: '/images/sponsor-2.webp',
+    photo: '/images/bigotes-full.webp',
+    alt: 'Bigotes, a tabby cat relaxing outdoors',
+  },
+]
+---
+
+<section id="sponsors" class="content-section sponsors">
+  <div class="section-heading">
+    <p class="section-number">04</p><h2>Sponsors<span>.</span></h2>
+  </div>
+  <div class="sponsors-content">
+    <p class="sponsors-lead">Powered by cats.</p>
+    <div class="sponsors-gallery">
+      {
+        sponsors.map((sponsor) => (
+          <figure>
+            <a
+              class="sponsor-photo"
+              href={sponsor.photo}
+              data-dialog={`photo-${sponsor.name}`}
+              aria-label={`View the full photo of ${sponsor.name}`}
+            >
+              <img
+                src={sponsor.thumbnail}
+                alt={sponsor.alt}
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <figcaption>{sponsor.name}</figcaption>
+            <dialog
+              class="sponsor-dialog"
+              id={`photo-${sponsor.name}`}
+              aria-labelledby={`title-${sponsor.name}`}
+            >
+              <div class="sponsor-dialog-content">
+                <div class="sponsor-dialog-header">
+                  <h3 id={`title-${sponsor.name}`}>
+                    {sponsor.name}
+                    <span>.</span>
+                  </h3>
+                  <form method="dialog">
+                    <button type="submit" autofocus>
+                      Close
+                    </button>
+                  </form>
+                </div>
+                <img
+                  src={sponsor.photo}
+                  alt={sponsor.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </dialog>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const preloadedPhotos = new Map<string, HTMLImageElement>()
+  const preloadPhoto = (link: HTMLAnchorElement) => {
+    if (preloadedPhotos.has(link.href)) return
+    const image = new Image()
+    image.src = link.href
+    preloadedPhotos.set(link.href, image)
+    image.decode().catch(() => {})
+  }
+
+  const links = document.querySelectorAll<HTMLAnchorElement>('.sponsor-photo')
+  const section = document.getElementById('sponsors')
+  if (section && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          links.forEach(preloadPhoto)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '600px' },
+    )
+    observer.observe(section)
+  }
+
+  links.forEach((link) => {
+    const dialog = document.getElementById(link.dataset.dialog ?? '')
+    if (
+      !(dialog instanceof HTMLDialogElement) ||
+      typeof dialog.showModal !== 'function'
+    )
+      return
+
+    link.addEventListener('pointerenter', () => preloadPhoto(link), {
+      once: true,
+    })
+    link.addEventListener('focus', () => preloadPhoto(link), { once: true })
+    link.addEventListener('click', (event) => {
+      event.preventDefault()
+      dialog.showModal()
+      document.documentElement.classList.add('modal-open')
+    })
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('modal-open')
+    })
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close()
+    })
+  })
+</script>

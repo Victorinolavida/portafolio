@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import { GITHUB_LINK, LINKEDIN_LINK } from '../consts'
+import { GITHUB_LINK, LINKEDIN_LINK, SITE_TITLE } from '../consts'
 
 interface Props {
   title: string
@@ -44,6 +44,7 @@ const personSchema = {
 <title>{title} | Backend Engineer</title>
 <meta name="description" content={description} />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:title" content={`${title} | Backend Engineer`} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
