@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import Photo from '../../public/photo.jpg'
+
+const cvUrl = import.meta.env.CV_URL?.trim()
+const isValidCvUrl = cvUrl && /^https?:\/\//i.test(cvUrl)
 ---
 
 <section id="introduction" class="introduction">
@@ -15,9 +18,24 @@ import Photo from '../../public/photo.jpg'
       At Cicada, I rebuilt a bond-matching engine in Go, reducing order
       processing time from about one second to 200 milliseconds.
     </p>
-    <a class="text-link" href="#projects"
-      >Explore my projects <span aria-hidden="true">↗</span></a
-    >
+    <div class="introduction-actions">
+      <a class="text-link" href="#projects"
+        >Explore my projects <span aria-hidden="true">↗</span></a
+      >
+      {
+        isValidCvUrl && (
+          <a
+            class="cv-link"
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            Download CV
+          </a>
+        )
+      }
+    </div>
   </div>
   <div class="introduction-photo-container">
     <Image src={Photo} class="introduction-photo" alt="Victorino Lavida" />
