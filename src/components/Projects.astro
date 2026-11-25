@@ -79,6 +79,8 @@ const projects = [
               <p>
                 <a
                   class="project-link"
+                  data-analytics-event="project_link_click"
+                  data-analytics-value={project.name}
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"

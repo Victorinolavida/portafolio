@@ -6,14 +6,36 @@ import { SITE_TITLE, LINKEDIN_LINK, GITHUB_LINK } from '../consts'
   <nav class="site-nav" aria-label="Main navigation">
     <a class="site-name" href="/">{SITE_TITLE}<span>.</span></a>
     <div class="nav-links">
-      <a href="#work-experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#about-me">About</a>
+      <a
+        href="#work-experience"
+        data-analytics-event="section_navigation_click"
+        data-analytics-value="Experience">Experience</a
+      >
+      <a
+        href="#projects"
+        data-analytics-event="section_navigation_click"
+        data-analytics-value="Projects">Projects</a
+      >
+      <a
+        href="#about-me"
+        data-analytics-event="section_navigation_click"
+        data-analytics-value="About">About</a
+      >
     </div>
     <div class="nav-social">
-      <a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer"
-        >LinkedIn</a
+      <a
+        href={GITHUB_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics-event="social_link_click"
+        data-analytics-value="GitHub">GitHub</a
+      >
+      <a
+        href={LINKEDIN_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics-event="social_link_click"
+        data-analytics-value="LinkedIn">LinkedIn</a
       >
     </div>
   </nav>

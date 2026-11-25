@@ -54,6 +54,8 @@ This site is built statically, so changing `CV_URL` requires a new build and dep
 
 Google Analytics records a `cv_download` event when a visitor clicks the Download CV link. Check the event in the GA4 Realtime or Events report after deployment. The event counts clicks, not confirmed file downloads, and can be blocked by browser settings or extensions.
 
+Google Analytics and Google Tag Manager are disabled by default. Set `PUBLIC_ENABLE_ANALYTICS=true` in your hosting provider's production environment variables to enable them. Leave it unset or `false` locally and in preview environments. This is a build-time setting, so redeploy after changing it.
+
 All commands are run from the root of the project, from a terminal:
 
 | Command             | Action                                           |
