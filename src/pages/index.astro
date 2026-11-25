@@ -43,5 +43,22 @@ import Analytics from '@vercel/analytics/astro'
       <Sponsors />
     </main>
     <Footer />
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        const link =
+          event.target instanceof Element &&
+          event.target.closest('[data-analytics-event]')
+        if (!link || typeof gtag !== 'function') return
+
+        const name = link.getAttribute('data-analytics-event')
+        const value = link.getAttribute('data-analytics-value')
+        const parameter = {
+          social_link_click: 'platform',
+          project_link_click: 'project_name',
+          section_navigation_click: 'section',
+        }[name]
+        gtag('event', name, parameter && value ? { [parameter]: value } : {})
+      })
+    </script>
   </body>
 </html>

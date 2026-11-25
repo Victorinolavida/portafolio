@@ -19,7 +19,11 @@ const isValidCvUrl = cvUrl && /^https?:\/\//i.test(cvUrl)
       processing time from about one second to 200 milliseconds.
     </p>
     <div class="introduction-actions">
-      <a class="text-link" href="#projects"
+      <a
+        class="text-link"
+        href="#projects"
+        data-analytics-event="section_navigation_click"
+        data-analytics-value="Projects"
         >Explore my projects <span aria-hidden="true">↗</span></a
       >
       {
