@@ -42,3 +42,9 @@ const isValidCvUrl = cvUrl && /^https?:\/\//i.test(cvUrl)
     <p>Victorino Lavida <span>Mexico City, Mexico</span></p>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelector('.cv-link')?.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'cv_download')
+  })
+</script>

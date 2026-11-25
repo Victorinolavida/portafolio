@@ -52,6 +52,8 @@ To show the Download CV button, set `CV_URL` to the public HTTP or HTTPS URL of 
 
 This site is built statically, so changing `CV_URL` requires a new build and deployment. On Cloudflare Pages, set it under your project's **Settings > Environment variables**, then trigger a new deployment; no Git commit is needed. For reliable downloading, configure the file host to return `Content-Disposition: attachment`; otherwise the browser may open the CV instead.
 
+Google Analytics records a `cv_download` event when a visitor clicks the Download CV link. Check the event in the GA4 Realtime or Events report after deployment. The event counts clicks, not confirmed file downloads, and can be blocked by browser settings or extensions.
+
 All commands are run from the root of the project, from a terminal:
 
 | Command             | Action                                           |
