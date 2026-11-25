@@ -7,17 +7,28 @@ const year = new Date().getFullYear()
   <div class="footer-inner">
     <div>
       <p class="footer-label">Get in touch</p>
-      <a class="footer-email" href="mailto:victorino.lavida@gmail.com"
-        >victorino.lavida@gmail.com</a
+      <a
+        class="footer-email"
+        href="mailto:victorino.lavida@gmail.com"
+        data-analytics-event="contact_email_click">victorino.lavida@gmail.com</a
       >
     </div>
     <div class="footer-bottom">
       <p>© {year} Victorino Lavida</p>
       <div>
-        <a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer"
-          >GitHub</a
-        ><a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer"
-          >LinkedIn</a>
+        <a
+          href={GITHUB_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="social_link_click"
+          data-analytics-value="GitHub">GitHub</a
+        ><a
+          href={LINKEDIN_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="social_link_click"
+          data-analytics-value="LinkedIn">LinkedIn</a
+        >
       </div>
     </div>
   </div>
