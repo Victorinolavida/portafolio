@@ -1,0 +1,49 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid var(--rule);
+}
+.site-nav,
+main,
+.footer-inner {
+  width: min(100% - 96px, 1440px);
+  margin: 0 auto;
+}
+.site-nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.site-nav a {
+  text-decoration: none;
+}
+.site-name {
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.site-name span,
+.section-heading h2 span,
+.introduction h1 span {
+  color: var(--accent);
+}
+.nav-links,
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.nav-links {
+  margin-left: auto;
+}
+.nav-social {
+  padding-left: 2rem;
+  border-left: 1px solid var(--rule);
+  color: #555;
+}

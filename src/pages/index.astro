@@ -9,27 +9,15 @@ import WorkExperience from '../components/WorkExperience.astro'
 import Projects from '../components/Projects.astro'
 import Sponsors from '../components/Sponsors.astro'
 import Analytics from '@vercel/analytics/astro'
+import GoogleAnalytics from '../components/GoogleAnalytics.astro'
+
+const enableGoogleAnalytics = import.meta.env.PUBLIC_ENABLE_ANALYTICS === 'true'
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtm.js?id=GTM-NB6DBMSV"></script>
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YVNDW206KH"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', 'G-YVNDW206KH')
-    </script>
+    {enableGoogleAnalytics && <GoogleAnalytics />}
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <Analytics />
   </head>
